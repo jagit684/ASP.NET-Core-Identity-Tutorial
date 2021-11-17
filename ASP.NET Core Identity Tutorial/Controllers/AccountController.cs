@@ -27,7 +27,7 @@ namespace ASP.NET_Core_Identity_Tutorial.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(InputModel Input)
+        public async Task<IActionResult> Register(RegisterVM Input)
         {
             if (ModelState.IsValid)
             {
@@ -55,7 +55,7 @@ namespace ASP.NET_Core_Identity_Tutorial.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(InputModel Input)
+        public async Task<IActionResult> Login(LoginVM Input)
         {
             if (ModelState.IsValid)
             {
@@ -76,6 +76,13 @@ namespace ASP.NET_Core_Identity_Tutorial.Controllers
             }
 
             return View();
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            _signInManager.SignOutAsync();
+            return LocalRedirect("/Account/Login");
+
         }
 
     }
