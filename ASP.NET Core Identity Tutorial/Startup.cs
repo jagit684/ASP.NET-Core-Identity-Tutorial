@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ASP.NET_Core_Identity_Tutorial.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace ASP.NET_Core_Identity_Tutorial
 {
@@ -29,6 +30,11 @@ namespace ASP.NET_Core_Identity_Tutorial
 
             services.AddDbContext<ASPNET_Core_Identity_TutorialContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ASPNET_Core_Identity_TutorialContext")));
+
+            services.AddIdentity<IdentityUser, IdentityRole>(options => {
+                options.SignIn.RequireConfirmedAccount = false;
+                //Other options go here
+                }).AddEntityFrameworkStores<ASPNET_Core_Identity_TutorialContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,7 +54,7 @@ namespace ASP.NET_Core_Identity_Tutorial
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -4,14 +4,16 @@ using ASP.NET_Core_Identity_Tutorial.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ASP.NET_Core_Identity_Tutorial.Migrations
 {
     [DbContext(typeof(ASPNET_Core_Identity_TutorialContext))]
-    partial class ASPNET_Core_Identity_TutorialContextModelSnapshot : ModelSnapshot
+    [Migration("20211117160158_addIdentity")]
+    partial class addIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
