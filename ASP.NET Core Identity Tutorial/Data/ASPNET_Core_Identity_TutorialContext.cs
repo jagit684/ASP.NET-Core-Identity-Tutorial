@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using ASP.NET_Core_Identity_Tutorial.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace ASP.NET_Core_Identity_Tutorial.Data
 {
-    public class ASPNET_Core_Identity_TutorialContext : DbContext
+    public class ASPNET_Core_Identity_TutorialContext : IdentityDbContext<IdentityUser, IdentityRole, string>
     {
         public ASPNET_Core_Identity_TutorialContext (DbContextOptions<ASPNET_Core_Identity_TutorialContext> options)
             : base(options)

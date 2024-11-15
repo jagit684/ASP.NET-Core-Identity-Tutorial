@@ -1,4 +1,5 @@
 ﻿using ASP.NET_Core_Identity_Tutorial.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -23,7 +24,8 @@ namespace ASP.NET_Core_Identity_Tutorial.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        [Authorize]
+        public IActionResult Mall()
         {
             return View();
         }

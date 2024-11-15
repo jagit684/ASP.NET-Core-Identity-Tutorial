@@ -11,17 +11,18 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASP.NET_Core_Identity_Tutorial.Migrations
 {
     [DbContext(typeof(ASPNET_Core_Identity_TutorialContext))]
-    [Migration("20241115091855_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241115184828_FirstCreation")]
+    partial class FirstCreation
     {
+        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.36")
+                .HasAnnotation("ProductVersion", "8.0.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("ASP.NET_Core_Identity_Tutorial.Models.Employee", b =>
                 {
